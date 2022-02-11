@@ -21,7 +21,7 @@ const HeaderComponent: FC = (): JSX.Element => {
       fetchBalance();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [currentUserBalance]);
 
   return (
     <Header
