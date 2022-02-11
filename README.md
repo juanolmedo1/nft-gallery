@@ -33,3 +33,6 @@ I would probably:
 We need: 
 1. Get an API KEY from OpenSea API so we can overpass the rate limit.
 2. Get an mainnet Infura account for the Web3 provider.
+
+# Screenshot
+<img src="./assets/screenshots/gallery.png" alt="NFT Gallery" width="100%"/>
