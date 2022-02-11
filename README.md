@@ -8,7 +8,7 @@ The most important decision I make was the redux store design. Instead of storin
 ```
 {
     "users": {
-        "0x34241312312": {
+        "0x293ed38530005620e4b28600f196a97e1125daac": {
             "balance": string,
             "nfts": IOpenSeaNFT[],
         }, 
