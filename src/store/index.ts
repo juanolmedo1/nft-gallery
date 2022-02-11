@@ -2,11 +2,11 @@ import {
 	combineReducers,
 	configureStore,
 } from '@reduxjs/toolkit';
-import nftsReducer from './nfts';
+import usersReducer from './users';
   
 const store = configureStore({
 	reducer: combineReducers({
-		nfts: nftsReducer,
+		users: usersReducer,
 	})
 })
 

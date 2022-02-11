@@ -1,10 +1,17 @@
-export interface INFTAssets {
-  [owner: string]: IOpenSeaNFT[];
+export interface IUserState {
+  [owner: string]: {
+    balance: string;
+    nfts: IOpenSeaNFT[];
+  }
 }
 
 export interface INFTActionPayload {
   owner: string;
   data: IOpenSeaNFT[];
+}
+export interface IBalanceActionPayload {
+  owner: string;
+  balance: string;
 }
 
 export interface INFTOpenSeaResponse {

@@ -1,17 +1,17 @@
 import { FC, useEffect } from "react";
 import { Container, Grid } from "@mantine/core";
 import { useDispatch, useSelector } from "react-redux";
-import { setNFTAssets } from "store/nfts";
+import { setNFTAssets } from "store/users";
 import { LIMIT, OWNER_ADDRESS } from "utils/constants";
 import { getAssetsByOwner } from "services/api";
-import { getNFTs } from "selectors/nftSelectors";
-import { INFTAssets, IOpenSeaNFT } from "store/nfts/types";
+import { getUsers } from "selectors/userSelector";
+import { IOpenSeaNFT, IUserState } from "store/users/types";
 import Card from "./Card";
 
 const NftContainer: FC = (): JSX.Element => {
-  const assets: INFTAssets = useSelector(getNFTs);
+  const users: IUserState = useSelector(getUsers);
   const dispatch = useDispatch();
-  const currentOwner: IOpenSeaNFT[] = assets[OWNER_ADDRESS];
+  const currentUserNFTs: IOpenSeaNFT[] = users[OWNER_ADDRESS]?.nfts || [];
 
   useEffect(() => {
     const fetchAssets = async () => {
@@ -22,16 +22,16 @@ const NftContainer: FC = (): JSX.Element => {
         console.log("ERROR:", error);
       }
     };
-    if (!assets[OWNER_ADDRESS]?.length) {
+    if (!users[OWNER_ADDRESS]?.nfts?.length) {
       fetchAssets();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [assets]);
+  }, [users]);
 
   return (
     <Container fluid={true}>
       <Grid>
-        {currentOwner && currentOwner.map(({ token_id, image_url, name, collection }) => (
+        {currentUserNFTs.map(({ token_id, image_url, name, collection }) => (
           <Grid.Col key={token_id} xs={6} md={3} lg={2}>
             <Card
               imageUrl={image_url}

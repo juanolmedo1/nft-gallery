@@ -1,5 +1,5 @@
 import axios from "axios";
-import { INFTOpenSeaResponse } from "../store/nfts/types";
+import { INFTOpenSeaResponse } from "store/users/types";
 
 export const getAssetsByOwner = async (
   owner: string,
